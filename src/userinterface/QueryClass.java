@@ -1,16 +1,6 @@
 package userinterface;
 
 
-import java.io.InputStream;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.Statement;
-import java.util.PropertyResourceBundle;
-import java.util.ResourceBundle;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

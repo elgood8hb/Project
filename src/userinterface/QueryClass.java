@@ -1,6 +1,6 @@
 package userinterface;
 
-import exam.DatabaseServer;
+
 import java.io.InputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -63,6 +63,6 @@ public class QueryClass {
              else
              System.out.println(str + " is an invalid input\n");
         DatabaseServer dbs = new DatabaseServer();
-        dbs(str);
+        dbs.connectDb(str);
     }
 }

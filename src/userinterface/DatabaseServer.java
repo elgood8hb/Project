@@ -18,7 +18,7 @@ public class DatabaseServer
     String password = null;
         
     
-    public void connectDb () 
+    public void connectDb (String queryString) 
     {
         
         try

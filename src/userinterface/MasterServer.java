@@ -14,7 +14,7 @@ public class MasterServer extends ClientServer {
     private int counter = 0;
 
     /**
-     * EchoServer() constructor creates a server object given
+     * Server() constructor creates a server object given
      *  it port number and a number representing the number of
      *  clients it can backlog.
      * @param portNum -- an int giving the port number

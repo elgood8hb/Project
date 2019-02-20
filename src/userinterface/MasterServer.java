@@ -1,6 +1,9 @@
 
 package userinterface;
-
+//Steve Hansen here.  When creating a new SocketServer, 
+//I think we need to pass its reference to the ResultSetProcessing class so that it has
+//something to return output to. I think. Maybe I'm just lit. If you think of a 
+// better way, I'm all for it. 
 
 package ClientServer;
 

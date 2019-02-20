@@ -14,12 +14,7 @@ import java.io.*;
 
 public class MasterServer extends ClientServer {
     
-    private int clientPortNumber;
-    private ServerSocket port;
-    private Socket socket;
-    //private DatabaseServer ThreadedServer[];
-    private int numberServer;
-    private String stNum;
+   
     
         
     public MasterServer(int portNum, int nBacklog)  {

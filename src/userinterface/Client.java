@@ -76,25 +76,16 @@ public class Client extends ClientServer {
             System.out.println("CLIENT: type a line or 'goodbye' to quit"); // Prompt the user
             String userStr = "";
             do {
-                userStr = readFromKeyboard();                   // Get input from user
+             //   userStr = readFromKeyboard();                   // Get from Emily's method
                 writeToSocket(socket, userStr + "\n");          // Send it to server
                 servStr = readFromSocket(socket);               // Read the server's response
-                System.out.println("SERVER: " + servStr);       // Report the server's response
+                System.out.println("SERVER: " + servStr);       // Get from Emily's method
             } while (!userStr.toLowerCase().equals("goodbye")); // Until user says 'goodbye'
         }
         
     } // requestService()
 
-    /**
-     *  readFromKeyboard() reads a line of input from the keyboard
-     */
-    protected String readFromKeyboard( ) throws IOException {
-        BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-        System.out.print("INPUT: ");
-        String line = input.readLine();
-        return line;
-    } // readFromKeyboard()
-
+   
     /**
      *  main() creates a client object given the URL and port number
      *   of the echo server

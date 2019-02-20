@@ -1,17 +1,4 @@
-/*
- * IST 411 Program #3
- * File: EchoServer.java
- * Description: This class defines the server object of
- *  a simple client/server application. The application
- *  sets up a socket connection between the client and 
- *  server and simply echos strings input by the user.
- *  The server object reads a string sent by a client
- *  and sends the same string back over the socket.
- *
- * @author Java, Java, Java
- * Modified by: Kevin Hansen
- * @version 1.0 2/20/19
- */
+
 package userinterface;
 import java.net.*;
 import java.io.*;

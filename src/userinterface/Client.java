@@ -1,3 +1,4 @@
+
 /*
  * IST 411 Program #3
  * File: EchoClient.java
@@ -10,7 +11,7 @@
  *
  * @author Java, Java, Java
  * Modified by: Kevin Hansen
- * @version 1.0 1/30/19
+ * @version 1.0 2/20/19
  */
 package userinterface;
 import java.net.*;
@@ -103,4 +104,4 @@ public class Client extends ClientServer {
         Client client = new Client("localhost", 10001);
         client.start();
     } // main() 
-} // EchoClient
+} // Client

@@ -10,7 +10,7 @@
  *
  * @author Java, Java, Java
  * Modified by: Kevin Hansen
- * @version 1.0 1/30/19
+ * @version 1.0 2/20/19
  */
 package userinterface;
 import java.net.*;
@@ -78,4 +78,4 @@ public class MasterServer extends ClientServer {
         MasterServer master = new MasterServer(10001,5);
         master.start();
     } // main()
-} // EchoServerMaster
+} // MasterServer

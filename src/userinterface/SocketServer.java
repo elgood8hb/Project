@@ -83,5 +83,11 @@ public class SocketServer extends ClientServer {
             e.printStackTrace();
         }
     } // provideServer() 
-
+    protected void sendResult (Socket socket, String resultString) {
+        try {
+            writeToSocket(socket, resultString);
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }// try/catch
+    }// sendResult
 } // EchoServer

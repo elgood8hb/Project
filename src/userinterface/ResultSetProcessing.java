@@ -6,15 +6,23 @@
 package userinterface;
 
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class ResultSetProcessing extends ClientServer{
+public class ResultSetProcessing extends ClientServer {
 
-    public ResultSetProcessing() {
+    public ResultSetProcessing(Statement stmt, String query) {
 
+        try {
+            ResultSet rs = stmt.executeQuery(query);
+            format(rs);
+        } catch (SQLException ex) {
+            Logger.getLogger(ResultSetProcessing.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public void format(ResultSet rs) {
-        
+
         try {
 
             ResultSetMetaData rsmd = rs.getMetaData();
@@ -22,15 +30,14 @@ public class ResultSetProcessing extends ClientServer{
 
             for (int x = 1; x <= columnCount; x++) {
                 String columnName = rsmd.getColumnName(x);
-                
-                // writeToSocket(columnName + "\t"); not sure how to get the data from here to calling class.
+
+                //output to SocketServer
             }
-            
 
             while (rs.next()) {
                 for (int x = 1; x <= columnCount; x++) {
                     String resultStr = rs.getString(x);
-                    
+
                     //return resultStr + "\t";
                 }
                 System.out.println("");
@@ -40,4 +47,4 @@ public class ResultSetProcessing extends ClientServer{
         }
 
     }
-} //comment
+}

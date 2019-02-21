@@ -1,5 +1,7 @@
 package userinterface;
 
+import java.net.Socket;
+
 
 
 /*
@@ -14,7 +16,7 @@ public class QueryClass {
     //private ServerSocket port;
     //private Socket socket;
     
-    public void changeQuery(String str)
+    public void changeQuery(String str, Socket socket, SocketServer ss)
     {   
         if (str.toLowerCase().contains("read")) {
             if (str.toLowerCase().contains("all")) {
@@ -53,6 +55,6 @@ public class QueryClass {
              else
              System.out.println(str + " is an invalid input\n");
         DatabaseServer dbs = new DatabaseServer();
-        dbs.connectDb(str);
+        dbs.connectDb(str, socket,ss);
     }
 }

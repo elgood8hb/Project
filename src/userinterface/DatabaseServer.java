@@ -7,6 +7,7 @@ package userinterface;
 
 import java.util.*;
 import java.io.*;
+import java.net.Socket;
 import java.sql.*;
 
 public class DatabaseServer {
@@ -17,7 +18,7 @@ public class DatabaseServer {
     String user = null;
     String password = null;
 
-    public void connectDb(String queryString) {
+    public void connectDb(String queryString, Socket socket, SocketServer ss) {
 
         try {
             ResourceBundle resources;
@@ -50,7 +51,7 @@ public class DatabaseServer {
         try {
             Connection con = DriverManager.getConnection(url, user, password);
             Statement stmt = con.createStatement();
-            ResultSetProcessing rs = new ResultSetProcessing(stmt, queryString);
+            ResultSetProcessing rs = new ResultSetProcessing(stmt, queryString, socket, ss);
 
             stmt.close();
             con.close();

@@ -1,18 +1,4 @@
 
-/*
- * IST 411 Program #3
- * File: EchoClient.java
- * Description: This class defines the client object of
- *  a simple client/server application. The application
- *  sets up a socket connection between the client and
- *  server and simply echos strings input by the user. 
- *  The client object serves as the user interface. It
- *  accepts user input and sends it to the server.
- *
- * @author Java, Java, Java
- * Modified by: Kevin Hansen
- * @version 1.0 2/20/19
- */
 package userinterface;
 import java.net.*;
 import java.io.*;

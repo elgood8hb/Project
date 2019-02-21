@@ -16,7 +16,11 @@ public class ResultSetProcessing {
 
         try {
             ResultSet rs = stmt.executeQuery(query);
-            format(rs, socket,ss);
+            if(query.toUpperCase().startsWith("SELECT")){
+                format(rs, socket,ss);
+            }else {
+                ss.sendResult(socket, "Data insertion successful.");
+            }
         } catch (SQLException ex) {
             Logger.getLogger(ResultSetProcessing.class.getName()).log(Level.SEVERE, null, ex);
         }

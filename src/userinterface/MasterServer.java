@@ -4,7 +4,6 @@ import java.io.*;
 
 public class MasterServer extends ClientServer {
 
-    private int clientPortNumber;
     private ServerSocket port;
     private Socket socket;
     private SocketServer ThreadedServer[] = new SocketServer[5];

@@ -10,7 +10,7 @@ public class MasterServer extends ClientServer {
     private Socket socket;
     private SocketServer ThreadedServer[] = new SocketServer[5];
     private int numberServer = 11000;
-    private String port123;
+    private String stPort;
     private int counter = 0;
 
     /**
@@ -43,11 +43,11 @@ public class MasterServer extends ClientServer {
                 socket = port.accept();
                 System.out.println("Accepted a connection from " + socket.getInetAddress());
                 numberServer++;
-                port123 = Integer.toString(numberServer);
+                stPort = Integer.toString(numberServer);
                 ThreadedServer[counter] = new SocketServer(numberServer, 5);
                 ThreadedServer[counter].start();
                 
-                writeToSocket(socket, port123);
+                writeToSocket(socket, stPort);
                 counter++;
                 System.out.println("EchoServerMaster: on port " + socket.getLocalPort() + " is sendig you to EchoServer on port " + numberServer);
                 System.out.println("Closed the connection\n");

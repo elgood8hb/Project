@@ -7,23 +7,17 @@ package userinterface;
 
 import java.net.Socket;
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class ResultSetProcessing {
 
-    public ResultSetProcessing(Statement stmt, String query, Socket socket, SocketServer ss) {
+    public ResultSetProcessing(ResultSet rs, String query, Socket socket, SocketServer ss) {
 
-        try {
-            ResultSet rs = stmt.executeQuery(query);
-            if(query.toUpperCase().startsWith("SELECT")){
-                format(rs, socket,ss);
-            }else {
-                ss.sendResult(socket, "Data insertion successful.");
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(ResultSetProcessing.class.getName()).log(Level.SEVERE, null, ex);
+        if (query.toUpperCase().startsWith("SELECT")) {
+            format(rs, socket, ss);
+        } else {
+            ss.sendResult(socket, "Data insertion successful.");
         }
+
     }
 
     public void format(ResultSet rs, Socket socket, SocketServer ss) {
@@ -36,14 +30,14 @@ public class ResultSetProcessing {
             for (int x = 1; x <= columnCount; x++) {
                 String columnName = rsmd.getColumnName(x);
 
-                }
+            }
 
             while (rs.next()) {
                 for (int x = 1; x <= columnCount; x++) {
                     String resultStr = rs.getString(x);
-                    
-                   ss.sendResult(socket, resultStr + "\t");
-                    
+
+                    ss.sendResult(socket, resultStr + "\t");
+
                 }
                 System.out.println("");
             }

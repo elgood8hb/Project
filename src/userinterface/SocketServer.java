@@ -76,13 +76,13 @@ public class SocketServer extends ClientServer {
                 if (str.toLowerCase().equals("goodbye"))
                     writeToSocket(socket, "Goodbye\n");
                 else
-                    qc.changeQuery(str);
+                    qc.changeQuery(str, socket, this);
                     //writeToSocket( socket, "You said '" + str + "'\n");
             }  while (!str.toLowerCase().equals("goodbye"));
         } catch (IOException e) {
             e.printStackTrace();
         }
-    } // provideServer() 
+    } // provideService() 
     protected void sendResult (Socket socket, String resultString) {
         try {
             writeToSocket(socket, resultString);

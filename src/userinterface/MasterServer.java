@@ -10,7 +10,7 @@ public class MasterServer extends ClientServer {
     private SocketServer ThreadedServer[] = new SocketServer[5];
     private int numberServer = 11000;
     private String stPort;
-    private int counter = 0;
+    private int i = 0;
 
     /**
      * Server() constructor creates a server object given
@@ -36,19 +36,20 @@ public class MasterServer extends ClientServer {
      */
     public void run() {
         try {
-            System.out.println("Echo server at " 
+            System.out.println("MasterServer at " 
                                + InetAddress.getLocalHost() + " waiting for connections ");
             while(true) {
                 socket = port.accept();
                 System.out.println("Accepted a connection from " + socket.getInetAddress());
                 numberServer++;
                 stPort = Integer.toString(numberServer);
-                ThreadedServer[counter] = new SocketServer(numberServer, 5);
-                ThreadedServer[counter].start();
-                
+
+                ThreadedServer[i] = new SocketServer(numberServer, 5);
+                ThreadedServer[i].start();
                 writeToSocket(socket, stPort);
-                counter++;
-                System.out.println("EchoServerMaster: on port " + socket.getLocalPort() + " is sendig you to EchoServer on port " + numberServer);
+                i++;
+                
+                System.out.println("MasterServer: on port " + socket.getLocalPort() + " is sendig you on port " + numberServer);
                 System.out.println("Closed the connection\n");
                 }
 

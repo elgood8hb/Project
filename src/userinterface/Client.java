@@ -8,7 +8,7 @@ public class Client extends ClientServer {
      private static int newPort = 11000;
 
      /**
-      *  EchoClient() constructor creates a client object
+      *   Client() constructor creates a client object
       *   given the URL and port number of a server that this
       *   client will connect to
       *  @param url -- a String giving the server's URL
@@ -19,8 +19,8 @@ public class Client extends ClientServer {
              socket = new Socket(url, port);
              newPort = Integer.parseInt(readFromSocket(socket));
              socket = new Socket(url, newPort);
-             System.out.println("CLIENT: connected to " + url + ":" + port);
-             System.out.println("CLIENT: port number " + socket.getLocalPort());
+             System.out.println("CLIENT: connected to " + url + ":" + port 
+                     + " port: " + socket.getLocalPort());
              newPort = newPort + 1;
              
          } catch (Exception e) {

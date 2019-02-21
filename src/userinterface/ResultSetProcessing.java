@@ -5,23 +5,24 @@
  */
 package userinterface;
 
+import java.net.Socket;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class ResultSetProcessing extends ClientServer {
+public class ResultSetProcessing {
 
-    public ResultSetProcessing(Statement stmt, String query) {
+    public ResultSetProcessing(Statement stmt, String query, Socket socket, SocketServer ss) {
 
         try {
             ResultSet rs = stmt.executeQuery(query);
-            format(rs);
+            format(rs, socket,ss);
         } catch (SQLException ex) {
             Logger.getLogger(ResultSetProcessing.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public void format(ResultSet rs) {
+    public void format(ResultSet rs, Socket socket, SocketServer ss) {
 
         try {
 
@@ -31,14 +32,14 @@ public class ResultSetProcessing extends ClientServer {
             for (int x = 1; x <= columnCount; x++) {
                 String columnName = rsmd.getColumnName(x);
 
-                //output to SocketServer
-            }
+                }
 
             while (rs.next()) {
                 for (int x = 1; x <= columnCount; x++) {
                     String resultStr = rs.getString(x);
-
-                    //return resultStr + "\t";
+                    
+                   ss.sendResult(socket, resultStr + "\t");
+                    
                 }
                 System.out.println("");
             }

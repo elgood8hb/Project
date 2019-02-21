@@ -12,7 +12,6 @@ import java.sql.*;
 
 public class DatabaseServer {
 
-    QueryClass query;
     String className = null;
     String url = null;
     String user = null;
@@ -51,7 +50,8 @@ public class DatabaseServer {
         try {
             Connection con = DriverManager.getConnection(url, user, password);
             Statement stmt = con.createStatement();
-            ResultSetProcessing rs = new ResultSetProcessing(stmt, queryString, socket, ss);
+            ResultSet rs = stmt.executeQuery(queryString);
+            ResultSetProcessing rsp = new ResultSetProcessing(rs, queryString, socket, ss);
 
             stmt.close();
             con.close();

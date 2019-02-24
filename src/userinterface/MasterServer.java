@@ -48,7 +48,8 @@ public class MasterServer extends ClientServer {
                 writeToSocket(socket, stPort);
                 i++;
                 
-                System.out.println("MasterServer: on port " + socket.getLocalPort() + " is sendig to port " + numberServer);
+                System.out.println("MasterServer: on port " + socket.getLocalPort() 
+                        + " is sendig to port " + numberServer);
                 System.out.println("Closed the connection\n");
                 }
 

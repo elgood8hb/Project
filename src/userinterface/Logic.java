@@ -22,29 +22,33 @@ public class Logic extends ClientServer{
    private String create;
    private String delete;
    private String add;
-   private String view;
+   private String read;
    private int num;
    
    
    public void requestService(Socket socket) throws IOException{
        String servStr = readFromSocket(socket);
        UserInterface intFace = new UserInterface();
-       intFace.setData(s,servStr);
+       intFace.SetData(s,servStr);
        if (servStr.substring(0,5).equals("Hello")){
            userStr = " ";
            
            do{
                userStr = readFromKeyboard();
-               num = Integer.parseInt(userStr);
-               
-               if (num == 1){
-               //create whatever 1 is;
-               request = create;
+                             
+               if (userStr == "read"){
+               request = read;
+               intFace.SetData(c, userStr);
+               intFace.Options("read");
+               request = readFromKeyboard();
+               QueryClass.ChangeQuery(request);
                }
                
-               else if (num == 2){
-               //whatever 2 is;
-               request = delete;
+               else if (userStr == "write"){
+               intFace.SetData(s,userStr);
+               intFace.Option("write");
+               request = readFromKeyboard();
+               QueryClass.ChangeQuery(request);
                }
                
                /*continues with requests for different numbers*/

@@ -10,12 +10,23 @@ package userinterface;
  * @author elgoo
  */
 public class UserInterface {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+private char c;
+private char s;
+public void SetData(char fromWho, String stuff){
+    if (fromWho == c){
+    System.out.println("Client: " + stuff);
+}
+    else {
+     System.out.println("Server: " + stuff);
     }
-    
+    }
+
+public void Options (String what){
+    if (what == "read"){
+        System.out.println("what do you want to read??? motherboard or processor");
+    }
+    else if (what == "write"){
+        System.out.println("what do you want to write??? customer or client");
+    }
+}
 }

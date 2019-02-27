@@ -17,7 +17,9 @@ public class QueryClass {
     //private ServerSocket port;
     //private Socket socket;
     
-    public void changeQuery(String str, Socket socket, SocketServer ss)
+    //public void changeQuery(String str, Socket socket, SocketServer ss)
+    public void changeQuery(String str)
+
     {   
         strLength = str.length();
     
@@ -28,6 +30,7 @@ public class QueryClass {
                  
                 if (str.startsWith("0")) {
                     str = ("SELECT * FROM MOTHERBOARDS");
+                    System.out.println(str);
                 }
                 
                 else if (str.startsWith("1")) {

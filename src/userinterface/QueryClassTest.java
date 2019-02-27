@@ -21,9 +21,9 @@ public class QueryClassTest {
     {
         String str = "";
         Scanner sc = new Scanner(System.in);
-        System.out.println("press 1 for motherboard press 2 for processors");
+        System.out.println("press 1 for motherboards;  press 2 for processors");
         str = str + sc.nextLine();
-        System.out.println("press 1 for read press 2 for write");
+        System.out.println("press 1 for read;  press 2 for write");
         str = str + sc.nextLine();
         
         if (str.equals("11")) {

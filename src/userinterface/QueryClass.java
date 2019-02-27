@@ -41,13 +41,13 @@ public class QueryClass {
                 
                 else if (str.startsWith("2")) {
                 str = str.substring(1);
-                str = ("SELECT * FROM MOTHERBOARDS WHERE BRAND=" + str);
+                str = ("SELECT * FROM MOTHERBOARDS WHERE BRAND=" + str.toUpperCase());
                 System.out.println(str);
                 }
                 
                 else if (str.startsWith("3")) {
                 str = str.substring(1);
-                str = ("SELECT * FROM MOTHERBOARDS WHERE CHIP=" + str);
+                str = ("SELECT * FROM MOTHERBOARDS WHERE CHIP=" + str.toUpperCase());
                 System.out.println(str);
                 }
                 
@@ -66,7 +66,7 @@ public class QueryClass {
                 else if (str.startsWith("5")) {
                 str = str.substring(1);
                 str = str.replace(" ", " AND CHIP=");
-                str = ("SELECT * FROM MOTHERBOARDS WHERE BRAND=" + str);
+                str = ("SELECT * FROM MOTHERBOARDS WHERE BRAND=" + str.toUpperCase());
                 System.out.println(str);
                 }
             }
@@ -95,13 +95,13 @@ public class QueryClass {
                 
                 else if (str.startsWith("2")) {
                 str = str.substring(1);
-                str = ("SELECT * FROM PROCESSORS WHERE CHIPBRAND=" + str);
+                str = ("SELECT * FROM PROCESSORS WHERE CHIPBRAND=" + str.toUpperCase());
                 System.out.println(str);
                 }
                 
                 else if (str.startsWith("3")) {
                 str = str.substring(1);
-                str = ("SELECT * FROM PROCESSORS WHERE CHIPNAME=" + str);
+                str = ("SELECT * FROM PROCESSORS WHERE CHIPNAME=" + str.toUpperCase());
                 System.out.println(str);
                 }
                 
@@ -120,7 +120,7 @@ public class QueryClass {
                 else if (str.startsWith("5")) {
                 str = str.substring(1);
                 str = str.replace(" ", " AND CHIPCORE=");
-                str = ("SELECT * FROM PROCESSORS WHERE CHIPBRAND=" + str);
+                str = ("SELECT * FROM PROCESSORS WHERE CHIPBRAND=" + str.toUpperCase());
                 System.out.println(str);
                 }
             }

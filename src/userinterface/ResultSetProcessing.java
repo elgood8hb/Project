@@ -10,18 +10,20 @@ import java.sql.*;
 
 public class ResultSetProcessing {
 
-    public ResultSetProcessing(ResultSet rs, String query, Socket socket, SocketServer ss) {
+    //public ResultSetProcessing(ResultSet rs, String query, Socket socket, SocketServer ss) {
+    public ResultSetProcessing(ResultSet rs, String query) {
 
         if (query.toUpperCase().startsWith("SELECT")) {
-            format(rs, socket, ss);
+          //  format(rs, socket, ss);
+          format(rs);
         } else {
-            ss.sendResult(socket, "Data insertion successful.");
+          //  ss.sendResult(socket, "Data insertion successful.");
         }
 
     }
 
-    public void format(ResultSet rs, Socket socket, SocketServer ss) {
-
+    //public void format(ResultSet rs, Socket socket, SocketServer ss) {
+    public void format(ResultSet rs){
         try {
 
             ResultSetMetaData rsmd = rs.getMetaData();
@@ -35,8 +37,8 @@ public class ResultSetProcessing {
             while (rs.next()) {
                 for (int x = 1; x <= columnCount; x++) {
                     String resultStr = rs.getString(x);
-
-                    ss.sendResult(socket, resultStr + "\t");
+                     System.out.println(resultStr);
+                    //ss.sendResult(socket, resultStr + "\t");
 
                 }
                 System.out.println("");

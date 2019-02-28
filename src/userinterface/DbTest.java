@@ -9,7 +9,7 @@ package userinterface;
 public class DbTest {
     
     public static void main(String args[]){
-       String query = "Select * from Customer";
+       String query = "Select * from MOTHERBOARDS";
         DatabaseServer db = new DatabaseServer();
         db.connectDb(query);
     }

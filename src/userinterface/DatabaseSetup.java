@@ -41,7 +41,7 @@ public class DatabaseSetup
 
             className = resources.getString("jdbc.driver");
             url = resources.getString("jdbc.url");
-            System.out.println(url);
+            System.out.println(className);
             user = resources.getString("jdbc.user");
             password = resources.getString("jdbc.password");
         } // end try

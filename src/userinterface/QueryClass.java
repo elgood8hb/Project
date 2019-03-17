@@ -17,8 +17,8 @@ public class QueryClass {
     //private ServerSocket port;
     //private Socket socket;
     
-    //public void changeQuery(String str, Socket socket, SocketServer ss)
-    public void changeQuery(String str)
+    public void changeQuery(String str, Socket socket, SocketServer ss)
+    //public void changeQuery(String str)
 
     {   
         strLength = str.length();

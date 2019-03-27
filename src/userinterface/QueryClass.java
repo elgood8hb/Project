@@ -15,7 +15,7 @@ public class QueryClass {
     private String tabStr;
     private int strLength;
     //private ServerSocket port;
-    //private Socket socket;
+    private Socket socket;
     
     public void changeQuery(String str, Socket socket, SocketServer ss)
     //public void changeQuery(String str)
@@ -30,27 +30,33 @@ public class QueryClass {
                  
                 if (str.startsWith("0")) {
                     str = ("SELECT * FROM MOTHERBOARDS");
-                    System.out.println("str: " + str);
+                    //System.out.println("str: " + str);
                     DatabaseServer ds = new DatabaseServer();
                     ds.connectDb(str, socket, ss);
                 }
                 
                 else if (str.startsWith("1")) {
                 str = str.substring(1);
-                str = ("SELECT * FROM MOTHERBOARDS WHERE PRODUCTID=" + str);
-                System.out.println(str);
+                str = ("SELECT * FROM MOTHERBOARDS WHERE PRODUCTID = " + str);
+                //System.out.println(str);
+                DatabaseServer ds = new DatabaseServer();
+                ds.connectDb(str, socket, ss);
                 }
                 
                 else if (str.startsWith("2")) {
                 str = str.substring(1);
-                str = ("SELECT * FROM MOTHERBOARDS WHERE BRAND=" + str.toUpperCase());
-                System.out.println(str);
+                str = ("SELECT * FROM MOTHERBOARDS WHERE BRAND = " + str.toUpperCase());
+                //System.out.println(str);
+                DatabaseServer ds = new DatabaseServer();
+                ds.connectDb(str, socket, ss);
                 }
                 
                 else if (str.startsWith("3")) {
                 str = str.substring(1);
-                str = ("SELECT * FROM MOTHERBOARDS WHERE CHIP=" + str.toUpperCase());
-                System.out.println(str);
+                str = ("SELECT * FROM MOTHERBOARDS WHERE CHIP = " + str.toUpperCase());
+                //System.out.println(str);
+                DatabaseServer ds = new DatabaseServer();
+                ds.connectDb(str, socket, ss);
                 }
                 
                 else if (str.startsWith("4")) {
@@ -62,14 +68,18 @@ public class QueryClass {
                     str = str.replace("under ", "< ");
                 }
                 str = ("SELECT * FROM MOTHERBOARDS WHERE PRICE " + str);
-                System.out.println(str);
+                //System.out.println(str);
+                DatabaseServer ds = new DatabaseServer();
+                ds.connectDb(str, socket, ss);
                 }
                 
                 else if (str.startsWith("5")) {
                 str = str.substring(1);
                 str = str.replace(" ", " AND CHIP=");
-                str = ("SELECT * FROM MOTHERBOARDS WHERE BRAND=" + str.toUpperCase());
-                System.out.println(str);
+                str = ("SELECT * FROM MOTHERBOARDS WHERE BRAND = " + str.toUpperCase());
+                //System.out.println(str);
+                DatabaseServer ds = new DatabaseServer();
+                ds.connectDb(str, socket, ss);
                 }
             }
             else if (str.startsWith("2")) {
@@ -77,7 +87,9 @@ public class QueryClass {
                 str = str.substring(1);
                 str = ("INSERT INTO MOTHERBOARDS (PRODUCTID, BRAND, PRODUCTNAME, PRICE, CHIP)" +
                        " VALUES (" + str.toUpperCase() + ")");
-                System.out.println(str);
+                //System.out.println(str);
+                DatabaseServer ds = new DatabaseServer();
+                ds.connectDb(str, socket, ss);
             }
         }
 	if (str.startsWith("2")) {
@@ -92,19 +104,25 @@ public class QueryClass {
                 else if (str.startsWith("1")) {
                 str = str.substring(1);
                 str = ("SELECT * FROM PROCESSORS WHERE CHIPID=" + str);
-                System.out.println(str);
+                //System.out.println(str);
+                DatabaseServer ds = new DatabaseServer();
+                ds.connectDb(str, socket, ss);
                 }
                 
                 else if (str.startsWith("2")) {
                 str = str.substring(1);
                 str = ("SELECT * FROM PROCESSORS WHERE CHIPBRAND=" + str.toUpperCase());
-                System.out.println(str);
+                //System.out.println(str);
+                DatabaseServer ds = new DatabaseServer();
+                ds.connectDb(str, socket, ss);
                 }
                 
                 else if (str.startsWith("3")) {
                 str = str.substring(1);
                 str = ("SELECT * FROM PROCESSORS WHERE CHIPNAME=" + str.toUpperCase());
-                System.out.println(str);
+                //System.out.println(str);
+                DatabaseServer ds = new DatabaseServer();
+                ds.connectDb(str, socket, ss);
                 }
                 
                 else if (str.startsWith("4")) {
@@ -116,14 +134,18 @@ public class QueryClass {
                     str = str.replace("under ", "< ");
                 }
                 str = ("SELECT * FROM PROCESSORS WHERE CHIPPRICE " + str);
-                System.out.println(str);
+                //System.out.println(str);
+                DatabaseServer ds = new DatabaseServer();
+                ds.connectDb(str, socket, ss);
                 }
                 
                 else if (str.startsWith("5")) {
                 str = str.substring(1);
                 str = str.replace(" ", " AND CHIPCORE=");
                 str = ("SELECT * FROM PROCESSORS WHERE CHIPBRAND=" + str.toUpperCase());
-                System.out.println(str);
+                //System.out.println(str);
+                DatabaseServer ds = new DatabaseServer();
+                 ds.connectDb(str, socket, ss);
                 }
             }
             else if (str.startsWith("2")) {
@@ -131,7 +153,9 @@ public class QueryClass {
                 str = str.substring(1);
                 str = ("INSERT INTO PROCESSORS (CHIPID, CHIPBRAND, CHIPNAME, CHIPPRICE, CHIPCORE)" +
                        " VALUES (" + str.toUpperCase() + ")");
-                System.out.println(str);
+                //System.out.println(str);
+                DatabaseServer ds = new DatabaseServer();
+                ds.connectDb(str, socket, ss);
             }    
             
         }

@@ -23,7 +23,6 @@ public class DatabaseServer {
             ResourceBundle resources;
             InputStream in = null;
             ResourceBundle newResources;
-                        System.out.println("qs: " + queryString);
 
             in = ClassLoader.getSystemResourceAsStream("db.properties");
 
@@ -33,7 +32,7 @@ public class DatabaseServer {
 
             className = resources.getString("jdbc.driver");
             url = resources.getString("jdbc.url");
-            System.out.println(url);
+            //System.out.println(url);
             user = resources.getString("jdbc.user");
             password = resources.getString("jdbc.password");
         } catch (Exception exp) {

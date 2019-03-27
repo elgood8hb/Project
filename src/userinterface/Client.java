@@ -67,7 +67,7 @@ public class Client extends ClientServer {
             System.out.println("CLIENT: type a line or 'goodbye' to quit"); // Prompt the user
             //String userStr = "";
             do {
-                userStr = userStr;                 // Get from Emily's method
+                userStr = userStr;                 
                 writeToSocket(socket, userStr + "\n");          // Send it to server
                 servStr = readFromSocket(socket);               // Read the server's response
                 System.out.println("SERVER: " + servStr);       // Get from Emily's method

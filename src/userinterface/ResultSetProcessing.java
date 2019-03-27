@@ -10,8 +10,8 @@ import java.sql.*;
 
 public class ResultSetProcessing {
 
-    //public ResultSetProcessing(ResultSet rs, String query, Socket socket, SocketServer ss) {
-    public ResultSetProcessing(ResultSet rs, String query) {
+    public ResultSetProcessing(ResultSet rs, String query, Socket socket, SocketServer ss) {
+    //public ResultSetProcessing(ResultSet rs, String query) {
 
         if (query.toUpperCase().startsWith("SELECT")) {
           //  format(rs, socket, ss);

@@ -45,7 +45,7 @@ public class SocketServer extends ClientServer {
     
     public void run() {
         try {
-            System.out.println("Echo server at echoserver "
+            System.out.println("Socket server at socketserver "
                                + InetAddress.getLocalHost() + " waiting for connections ");
             while(true) {
                 socket = port.accept();

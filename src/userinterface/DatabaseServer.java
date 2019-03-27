@@ -17,12 +17,13 @@ public class DatabaseServer {
     String user = null;
     String password = null;
 
-   // public void connectDb(String queryString, Socket socket, SocketServer ss) {
-        public void connectDb(String queryString) {
+    public void connectDb(String queryString, Socket socket, SocketServer ss) {
+   //     public void connectDb(String queryString) {
         try {
             ResourceBundle resources;
             InputStream in = null;
             ResourceBundle newResources;
+                        System.out.println("qs: " + queryString);
 
             in = ClassLoader.getSystemResourceAsStream("db.properties");
 
@@ -51,8 +52,8 @@ public class DatabaseServer {
             Connection con = DriverManager.getConnection(url, user, password);
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(queryString);
-            //ResultSetProcessing rsp = new ResultSetProcessing(rs, queryString, socket, ss);
-            ResultSetProcessing rsp = new ResultSetProcessing(rs, queryString);
+            ResultSetProcessing rsp = new ResultSetProcessing(rs, queryString, socket, ss);
+            //ResultSetProcessing rsp = new ResultSetProcessing(rs, queryString);
 
             stmt.close();
             con.close();

@@ -30,7 +30,9 @@ public class QueryClass {
                  
                 if (str.startsWith("0")) {
                     str = ("SELECT * FROM MOTHERBOARDS");
-                    System.out.println(str);
+                    System.out.println("str: " + str);
+                    DatabaseServer ds = new DatabaseServer();
+                    ds.connectDb(str, socket, ss);
                 }
                 
                 else if (str.startsWith("1")) {
@@ -133,26 +135,6 @@ public class QueryClass {
             }    
             
         }
-       /*
-        else if (str.toLowerCase().contains("write")) {
-            if (str.toLowerCase().contains("customer")) {
-                str = str.toLowerCase().replace("write ", "").replace("customer ", "");
-	        str = ("INSERT INTO CUSTOMER (CUSTID, FIRSTNAME, LASTNAME)" +
-                       " VALUES (" + str.toUpperCase() + ")");
-                System.out.println(str);
-                tabStr = "Customer";
-	            }
-                   else if (str.toLowerCase().contains("employee")) {
-	              str = str.toLowerCase().replace("write ", "").replace("employee ", "");
-	              str = ("INSERT INTO EMPLOYEE (EMPID, FIRSTNAME, LASTNAME) VALUES (" + str.toUpperCase() + ")");
-                      tabStr = "Employee";
-	            }
-                   System.out.println("Table " + tabStr + " written to");
-                   
-                }
-             else
-             System.out.println(str + " is an invalid input\n");
-        DatabaseServer dbs = new DatabaseServer();
-        dbs.connectDb(str, socket,ss); */
+       
     } 
 }

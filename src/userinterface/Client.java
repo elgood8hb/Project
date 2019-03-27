@@ -7,6 +7,7 @@ public class Client extends ClientServer {
 
      protected static Socket socket;
      private static int newPort = 11000;
+     private String userStr;
 
      /**
       *   Client() constructor creates a client object
@@ -15,8 +16,10 @@ public class Client extends ClientServer {
       *  @param url -- a String giving the server's URL
       *  @param port -- an int giving the server's port number
       */
-     public Client(String url, int port, String userString) {
+     public Client(String url, int port, String userStr) {
          try {
+             userStr = userStr;
+             setStr(userStr);
              socket = new Socket(url, port);
              newPort = Integer.parseInt(readFromSocket(socket));
              socket = new Socket(url, newPort);
@@ -38,7 +41,8 @@ public class Client extends ClientServer {
       */
      public void run() {
          try {
-             requestService(socket);  
+             userStr = getStr();
+             requestService(socket, userStr);  
              socket.close();
              System.out.println("CLIENT: connection closed");
              
@@ -56,14 +60,14 @@ public class Client extends ClientServer {
      *   with the server requires that the server say "Hello" first.
      *  @param socket -- the Socket connection to the server
      */
-    protected void requestService(Socket socket) throws IOException {         
+    protected void requestService(Socket socket, String userStr) throws IOException {  
         String servStr = readFromSocket(socket);          // Check for "Hello"
         System.out.println("SERVER: " + servStr);         // Report the server's response
         if (servStr.substring(0,5).equals("Hello")) {
             System.out.println("CLIENT: type a line or 'goodbye' to quit"); // Prompt the user
-            String userStr = "";
+            //String userStr = "";
             do {
-                //userStr = readFromKeyboard();                 // Get from Emily's method
+                userStr = userStr;                 // Get from Emily's method
                 writeToSocket(socket, userStr + "\n");          // Send it to server
                 servStr = readFromSocket(socket);               // Read the server's response
                 System.out.println("SERVER: " + servStr);       // Get from Emily's method
@@ -71,15 +75,20 @@ public class Client extends ClientServer {
         }
         
     } // requestService()
-
+    public void setStr(String str) {
+        userStr = str;
+    }
+    public String getStr() {
+        return userStr;
+    }
    
     /**
      *  main() creates a client object given the URL and port number
      *   of the echo server
      */
     
-    public static void main (String args[], String userString) {
-        Client client = new Client("localhost", 10001, userString);
+    public static void main (String args[], String userStr) {
+        Client client = new Client("localhost", 10001, userStr);
         client.start();
     } // main() 
 } // Client

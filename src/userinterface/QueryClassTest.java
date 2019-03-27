@@ -89,9 +89,11 @@ public class QueryClassTest {
         }
 
        
-        System.out.println(str);
-        QueryClass qc = new QueryClass();
-        qc.changeQuery(str);
+        //System.out.println(str);
+        //QueryClass qc = new QueryClass();
+        //qc.changeQuery(str);
+        Client cl = new Client("localhost", 10001, str);
+        cl.run();
     }
     
     

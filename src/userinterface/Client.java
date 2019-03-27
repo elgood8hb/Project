@@ -2,6 +2,7 @@ package userinterface;
 import java.net.*;
 import java.io.*;
 
+
 public class Client extends ClientServer {
 
      protected static Socket socket;
@@ -14,7 +15,7 @@ public class Client extends ClientServer {
       *  @param url -- a String giving the server's URL
       *  @param port -- an int giving the server's port number
       */
-     public Client(String url, int port) {
+     public Client(String url, int port, String userString) {
          try {
              socket = new Socket(url, port);
              newPort = Integer.parseInt(readFromSocket(socket));
@@ -22,6 +23,7 @@ public class Client extends ClientServer {
              System.out.println("CLIENT: connected to " + url + ":" + port 
                      + " port: " + socket.getLocalPort());
              newPort = newPort + 1;
+             
              
          } catch (Exception e) {
              e.printStackTrace();
@@ -61,7 +63,7 @@ public class Client extends ClientServer {
             System.out.println("CLIENT: type a line or 'goodbye' to quit"); // Prompt the user
             String userStr = "";
             do {
-             //   userStr = readFromKeyboard();                 // Get from Emily's method
+                //userStr = readFromKeyboard();                 // Get from Emily's method
                 writeToSocket(socket, userStr + "\n");          // Send it to server
                 servStr = readFromSocket(socket);               // Read the server's response
                 System.out.println("SERVER: " + servStr);       // Get from Emily's method
@@ -76,8 +78,8 @@ public class Client extends ClientServer {
      *   of the echo server
      */
     
-    public static void main (String args[]) {
-        Client client = new Client("localhost", 10001);
+    public static void main (String args[], String userString) {
+        Client client = new Client("localhost", 10001, userString);
         client.start();
     } // main() 
 } // Client

@@ -15,7 +15,8 @@ import java.io.*;
  *
  * @author Laptop
  */
-public class QueryClassTest {
+public class QueryClassTest  extends ClientServer {
+    private Socket socket;
     
     public static void main (String args[]) 
     {
@@ -36,11 +37,11 @@ public class QueryClassTest {
             str = str + sc.nextLine();
         }
         if (str.equals("112")) {
-            System.out.println("enter the brand. ex: gigabyte or intel or msi");
+            System.out.println("enter the brand. ex: ASRock or Gigabyte or Intel or MSI");
             str = str + sc.nextLine();
         }
         if (str.equals("113")){
-            System.out.println("enter the chip. ex: amd or intel");
+            System.out.println("enter the chip. ex: AMD or Intel");
             str = str + sc.nextLine();
         }
         if (str.equals("114")) {
@@ -87,14 +88,24 @@ public class QueryClassTest {
             System.out.println("ex: 2229, intel, Intel Core i7-8700K Coffee Lake, 899.99, 8-core 3.7 GHz");
             str = str + sc.nextLine(); 
         }
-
-       
+        
         //System.out.println(str);
         //QueryClass qc = new QueryClass();
         //qc.changeQuery(str);
         Client cl = new Client("localhost", 10001, str);
         cl.run();
     }
-    
+    public void returnStatement(String servStr)
+    {
+        System.out.println(servStr);
+        /*
+        try {
+        String outPut = readFromSocket(socket);
+        }
+        catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+*/
+    }
     
 }

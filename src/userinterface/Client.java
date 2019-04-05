@@ -63,15 +63,18 @@ public class Client extends ClientServer {
     protected void requestService(Socket socket, String userStr) throws IOException {  
         String servStr = readFromSocket(socket);          // Check for "Hello"
         System.out.println("SERVER: " + servStr);         // Report the server's response
+        //Logic lg = new Logic();
+        QueryClassTest qc = new QueryClassTest();
         if (servStr.substring(0,5).equals("Hello")) {
-            System.out.println("CLIENT: type a line or 'goodbye' to quit"); // Prompt the user
+            //System.out.println("CLIENT: type a line or 'goodbye' to quit"); // Prompt the user
             //String userStr = "";
             do {
                 userStr = userStr;                 
                 writeToSocket(socket, userStr + "\n");          // Send it to server
-                servStr = readFromSocket(socket);               // Read the server's response
-                System.out.println("SERVER: " + servStr);       // Get from Emily's method
-            } while (!userStr.toLowerCase().equals("goodbye")); // Until user says 'goodbye'
+                writeToSocket(socket, "goodbye");
+                servStr = readFromSocket(socket);               // Read the server's response       
+                qc.returnStatement(servStr);
+            } while (!userStr.toLowerCase().contains("goodbye")); // Until user says 'goodbye'
         }
         
     } // requestService()

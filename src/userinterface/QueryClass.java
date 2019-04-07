@@ -44,15 +44,15 @@ public class QueryClass {
                 
                 else if (str.startsWith("2")) {
                 str = str.substring(1);
-                str = ("SELECT * FROM MOTHERBOARDS WHERE BRAND = '" + str + "';");
-                //System.out.println(str);
+                str = ("SELECT * FROM MOTHERBOARDS WHERE BRAND = '" + str + "'");
+                System.out.println(str);
                 DatabaseServer ds = new DatabaseServer();
                 ds.connectDb(str, socket, ss);
                 }
                 
                 else if (str.startsWith("3")) {
                 str = str.substring(1);
-                str = ("SELECT * FROM MOTHERBOARDS WHERE CHIP = '" + str + "';");
+                str = ("SELECT * FROM MOTHERBOARDS WHERE CHIP = '" + str + "'");
                 //System.out.println(str);
                 DatabaseServer ds = new DatabaseServer();
                 ds.connectDb(str, socket, ss);
@@ -75,7 +75,7 @@ public class QueryClass {
                 else if (str.startsWith("5")) {
                 str = str.substring(1);
                 str = str.replace(" ", " AND CHIP=");
-                str = ("SELECT * FROM MOTHERBOARDS WHERE BRAND = '" + str + "';");
+                str = ("SELECT * FROM MOTHERBOARDS WHERE BRAND = '" + str + "'");
                 //System.out.println(str);
                 DatabaseServer ds = new DatabaseServer();
                 ds.connectDb(str, socket, ss);
@@ -110,15 +110,15 @@ public class QueryClass {
                 
                 else if (str.startsWith("2")) {
                 str = str.substring(1);
-                str = ("SELECT * FROM PROCESSORS WHERE CHIPBRAND = " + str.toUpperCase());
-                //System.out.println(str);
+                str = ("SELECT * FROM PROCESSORS WHERE CHIPBRAND = '" + str + "'");
+                System.out.println(str);
                 DatabaseServer ds = new DatabaseServer();
                 ds.connectDb(str, socket, ss);
                 }
                 
                 else if (str.startsWith("3")) {
                 str = str.substring(1);
-                str = ("SELECT * FROM PROCESSORS WHERE CHIPNAME = " + str.toUpperCase());
+                str = ("SELECT * FROM PROCESSORS WHERE CHIPNAME = '" + str + "'");
                 //System.out.println(str);
                 DatabaseServer ds = new DatabaseServer();
                 ds.connectDb(str, socket, ss);

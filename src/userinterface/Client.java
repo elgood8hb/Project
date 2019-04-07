@@ -71,7 +71,7 @@ public class Client extends ClientServer {
             do {
                 userStr = userStr;                 
                 writeToSocket(socket, userStr + "\n");          // Send it to server
-                writeToSocket(socket, "goodbye");
+                //writeToSocket(socket, "goodbye");
                 servStr = readFromSocket(socket);               // Read the server's response       
                 qc.returnStatement(servStr);
             } while (!userStr.toLowerCase().contains("goodbye")); // Until user says 'goodbye'

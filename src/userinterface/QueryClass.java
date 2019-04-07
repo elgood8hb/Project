@@ -22,7 +22,7 @@ public class QueryClass {
 
     {   
         strLength = str.length();
-    
+        
         if (str.startsWith("1")) {
             str = str.substring(1);
             if (str.startsWith("1")) {
@@ -30,7 +30,6 @@ public class QueryClass {
                  
                 if (str.startsWith("0")) {
                     str = ("SELECT * FROM MOTHERBOARDS");
-                    //System.out.println("str: " + str);
                     DatabaseServer ds = new DatabaseServer();
                     ds.connectDb(str, socket, ss);
                 }

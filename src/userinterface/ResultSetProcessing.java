@@ -8,8 +8,8 @@ package userinterface;
 import java.net.Socket;
 import java.sql.*;
 
-public class ResultSetProcessing {
-
+public class ResultSetProcessing extends ClientServer {
+    private String resultStr="";
     public ResultSetProcessing(ResultSet rs, String query, Socket socket, SocketServer ss) {
     //public ResultSetProcessing(ResultSet rs, String query) {
 
@@ -17,7 +17,13 @@ public class ResultSetProcessing {
             format(rs, socket, ss);
           //format(rs);
         } else {
-            ss.sendResult(socket, "Data insertion successful.");
+            //ss.sendResult(socket, "Data insertion successful.");
+            try {
+            writeToSocket(socket, "Data insertion successful");
+            }
+            catch (Exception e) {
+                e.printStackTrace(System.out);
+            }
         }
 
     }
@@ -28,21 +34,22 @@ public class ResultSetProcessing {
 
             ResultSetMetaData rsmd = rs.getMetaData();
             int columnCount = rsmd.getColumnCount();
-
+             /*
             for (int x = 1; x <= columnCount; x++) {
                 String columnName = rsmd.getColumnName(x);
 
-            }
-
+            }*/
+           
             while (rs.next()) {
                 for (int x = 1; x <= columnCount; x++) {
-                    String resultStr = rs.getString(x);
-                     //System.out.println(resultStr);
-                    ss.sendResult(socket, resultStr + "\t");
-
-                }
+                    
+                        resultStr = rs.getString(x);
+                        ss.sendResult(socket, resultStr + "\t"); 
+                    }
+                    
+                 }
                 System.out.println("");
-            }
+            
         } catch (Exception e) {
             System.out.println(e);
         }

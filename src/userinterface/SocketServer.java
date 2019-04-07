@@ -71,14 +71,15 @@ public class SocketServer extends ClientServer {
         QueryClass qc = new QueryClass();
         try {
             writeToSocket(socket, "Hello. You are connected to " + socket.getLocalPort() + "\n"); //change to display port number 11001
-            do {     
+            //do {     
                 str = readFromSocket(socket);
+
                 if (str.toLowerCase().equals("goodbye"))
                     writeToSocket(socket, "Goodbye\n");
                 else
                     qc.changeQuery(str, socket, this);
                     //writeToSocket( socket, "goodbye");
-            }  while (!str.contains("goodbye"));
+            //}  while (!str.contains("goodbye"));
         } catch (IOException e) {
             e.printStackTrace();
         }

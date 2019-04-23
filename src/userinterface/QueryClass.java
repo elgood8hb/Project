@@ -91,13 +91,17 @@ public class QueryClass {
                 ds.connectDb(str, socket, ss);
             }
         }
-	if (str.startsWith("2")) {
+        if (str.startsWith("2")) {
             str = str.substring(1);
+
             if (str.startsWith("1")) {
                 str = str.substring(1);
-                 
+
                 if (str.startsWith("0")) {
                     str = ("SELECT * FROM PROCESSORS");
+                    System.out.println(str);
+                    DatabaseServer ds = new DatabaseServer();
+                    ds.connectDb(str, socket, ss);
                 }
                 
                 else if (str.startsWith("1")) {
@@ -140,8 +144,7 @@ public class QueryClass {
                 
                 else if (str.startsWith("5")) {
                 str = str.substring(1);
-                str = str.replace(" ", " AND CHIPCORE=");
-                str = ("SELECT * FROM PROCESSORS WHERE CHIPBRAND=" + str.toUpperCase());
+                str = ("SELECT * FROM PROCESSORS WHERE CHIPCORE LIKE '" + str + "%'");
                 //System.out.println(str);
                 DatabaseServer ds = new DatabaseServer();
                  ds.connectDb(str, socket, ss);

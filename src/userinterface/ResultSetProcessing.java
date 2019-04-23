@@ -46,7 +46,7 @@ public class ResultSetProcessing extends ClientServer {
                         resultStr = rs.getString(x);
                         ss.sendResult(socket, resultStr + "\t"); 
                     }
-                    
+
                  }
                 System.out.println("");
             

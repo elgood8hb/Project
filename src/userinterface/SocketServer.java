@@ -45,7 +45,7 @@ public class SocketServer extends ClientServer {
     
     public void run() {
         try {
-            System.out.println("Socket server at socketserver "
+            System.out.println("Socket server at ServerSockets "
                                + InetAddress.getLocalHost() + " waiting for connections ");
             while(true) {
                 socket = port.accept();
@@ -70,16 +70,16 @@ public class SocketServer extends ClientServer {
         String str="";
         QueryClass qc = new QueryClass();
         try {
-            writeToSocket(socket, "Hello. You are connected to " + socket.getLocalPort() + "\n"); //change to display port number 11001
-            //do {     
+            writeToSocket(socket, "Hello. You are connected to2 " + socket.getLocalPort() + "\n"); //change to display port number 11001
+            do {     
                 str = readFromSocket(socket);
 
                 if (str.toLowerCase().equals("goodbye"))
                     writeToSocket(socket, "Goodbye\n");
                 else
                     qc.changeQuery(str, socket, this);
-                    //writeToSocket( socket, "goodbye");
-            //}  while (!str.contains("goodbye"));
+                    writeToSocket( socket, "goodbye");
+            }  while (!str.contains("goodbye"));
         } catch (IOException e) {
             e.printStackTrace();
         }

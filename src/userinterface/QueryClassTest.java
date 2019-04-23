@@ -9,8 +9,6 @@ import java.net.*;
 import java.io.*;
 
 
-
-
 /**
  *
  * @author Laptop
@@ -20,7 +18,10 @@ public class QueryClassTest  extends ClientServer {
     
     public static void main (String args[]) 
     {
+        
         String str = "";
+        //Client cl = new Client("localhost", 10001, str);
+        //cl.run();
         Scanner sc = new Scanner(System.in);
         System.out.println("press 1 for motherboards;  press 2 for processors");
         str = str + sc.nextLine();
@@ -68,7 +69,7 @@ public class QueryClassTest  extends ClientServer {
             str = str + sc.nextLine();
         }
         if (str.equals("212")) {
-            System.out.println("enter the brand. ex: amd or intel");
+            System.out.println("enter the brand. ex: AMD or Intel");
             str = str + sc.nextLine();
         }
         if (str.equals("213")){
@@ -89,23 +90,13 @@ public class QueryClassTest  extends ClientServer {
             str = str + sc.nextLine(); 
         }
         
-        //System.out.println(str);
-        //QueryClass qc = new QueryClass();
-        //qc.changeQuery(str);
         Client cl = new Client("localhost", 10001, str);
         cl.run();
     }
     public void returnStatement(String servStr)
     {
         System.out.println(servStr);
-        /*
-        try {
-        String outPut = readFromSocket(socket);
-        }
-        catch (Exception e) {
-            e.printStackTrace(System.out);
-        }
-*/
+        
     }
     
 }

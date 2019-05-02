@@ -1,16 +1,13 @@
 /*
- * IST 411 Program #3
- * File: EchoServer.java
- * Description: This class defines the server object of
- *  a simple client/server application. The application
- *  sets up a socket connection between the client and 
- *  server and simply echos strings input by the user.
- *  The server object reads a string sent by a client
- *  and sends the same string back over the socket.
+ * IST 411 Group Project 1
+ * File: SocketServer.java
+ * Description: This class connects the client
+ * to the database. It reads a string from the
+ * socket and sends it to QueryClass for restructuring
+ * into an sql query.
  *
- * @author Java, Java, Java
- * Modified by: Kevin Hansen
- * @version 1.0 1/30/19
+ * @author: Kevin Hansen
+ * @version 2.0 4/30/19
  */
 package userinterface;
 import java.net.*;
@@ -21,7 +18,7 @@ public class SocketServer extends ClientServer {
     private ServerSocket port;
     private Socket socket;
     /**
-     * EchoServer() constructor creates a server object given
+     * SocketServer() constructor creates a server object given
      *  it port number and a number representing the number of
      *  clients it can backlog.
      * @param portNum -- an int giving the port number
@@ -64,6 +61,7 @@ public class SocketServer extends ClientServer {
      *   of simply echoing whatever string it receives from the client.
      *  The server's protocol calls for it to begin by saying hello
      *  and end by saying goodbye. Isn't it polite?
+     *  @param socket -- The socket used for reading/writhing
      */
 
     protected void provideService (Socket socket) {
@@ -86,6 +84,12 @@ public class SocketServer extends ClientServer {
         }
     } // provideService() 
     
+    /**
+     * Reads the result from the database query and sends it
+     * UserInterface for display to user.
+     * @param socket -- The socket to read the output from
+     * @param resultString -- the String that stores the output
+     */
     protected void sendResult (Socket socket, String resultString) {
         try {
             writeToSocket(socket, resultString);

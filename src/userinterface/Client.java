@@ -1,3 +1,15 @@
+/*
+ * IST 411 Group Project 1
+ * File: Client.java
+ * Description: This class connects the client
+ * to the MasterServer and then to the SocketServer.
+ * It is responsible for reading and writing Strings
+ * to and from the socket.
+ *
+ * @author: Kevin Hansen, Gerald Kemper
+ * @version 2.0 4/30/19
+ */
+
 package userinterface;
 import java.net.*;
 import java.io.*;
@@ -53,10 +65,11 @@ public class Client extends ClientServer {
 
     /**
      *  requestService() implements the details of the service
-     *   request. In this case it accepts a line of input from
-     *   the user and passes it along to the server. The protocol
+     *   request. In this case it accepts an input string from
+     *   the UserInterface and passes it along to the SocketServer. The protocol
      *   with the server requires that the server say "Hello" first.
      *  @param socket -- the Socket connection to the server
+     *  @param userStr -- string to hold the database inputs/outputs
      */
     protected void requestService(Socket socket, String userStr) throws IOException {  
         String servStr = readFromSocket(socket);          // Check for "Hello"
@@ -73,10 +86,11 @@ public class Client extends ClientServer {
     } // requestService()
    
     /**
-     *  main() creates a client object given the URL and port number
-     *   of the echo server
+     * main() creates a client object given the URL and port number
+     * of the Client server.
+     * @param args
+     * @param userStr 
      */
-    
     public static void main (String args[], String userStr) {
         Client client = new Client("localhost", 10001, userStr);
         client.start();

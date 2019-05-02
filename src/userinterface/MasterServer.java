@@ -1,3 +1,14 @@
+/*
+ * IST 411 Group Project 1
+ * File: MasterServer.java
+ * Description: This class accepts a connection from
+ * a client and then redircts to SocketServer.
+ *
+ * @author: Kevin Hansen
+ * @version 2.0 4/30/19
+ */
+
+
 package userinterface;
 import java.net.*;
 import java.io.*;
@@ -12,7 +23,7 @@ public class MasterServer extends ClientServer {
     private int i = 0;
 
     /**
-     * Server() constructor creates a server object given
+     * MasterServer() constructor creates a server object given
      *  it port number and a number representing the number of
      *  clients it can backlog.
      * @param portNum -- an int giving the port number

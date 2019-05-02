@@ -49,13 +49,14 @@ public class UserInterface  extends ClientServer {
             System.out.println("enter the price range, include over or under. ex: for all boards under $500 type \"under 500.00\"");
             str = str + sc.nextLine();
         }
+        /*
         if (str.equals("115")) {
             System.out.println("enter brand and chip. ex: asus intel");
             str = str + sc.nextLine();
-        }
+        } */
         if (str.equals("12")) {
             System.out.println("enter your items to write into the table. productID, brand, product name, price, chip");
-            System.out.println("ex: 1119, asus, asus rog dominus extreme, 899.99, amd");
+            System.out.println("ex: 1119, 'asus', 'asus rog dominus extreme', 899.99, 'amd'");
             str = str + sc.nextLine(); 
     }
     //////////////////////////////////////////////////////////////
@@ -80,13 +81,14 @@ public class UserInterface  extends ClientServer {
             System.out.println("enter the price range, include over or under. ex: for all chips under $500 type \"under 500.00\"");
             str = str + sc.nextLine();
         }
+        /*
         if (str.equals("215")) {
             System.out.println("enter chip core. ex: 6-core");
             str = str + sc.nextLine();
-        }
+        }*/
         if (str.equals("22")) {
             System.out.println("enter your items to write into the table. chipID, chip brand, chip name, price, chip core");
-            System.out.println("ex: 2229, intel, Intel Core i7-8700K Coffee Lake, 899.99, 8-core 3.7 GHz");
+            System.out.println("ex: 2229, 'intel', 'Intel Core i7-8700K Coffee Lake', 899.99, '8-core 3.7 GHz'");
             str = str + sc.nextLine(); 
         }
         

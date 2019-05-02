@@ -16,10 +16,12 @@ public class DatabaseServer {
     String url = null;
     String user = null;
     String password = null;
+    ResultSet rs;
 
     public void connectDb(String queryString, Socket socket, SocketServer ss) {
-   //     public void connectDb(String queryString) {
         try {
+            UserInterface ui = new UserInterface();
+            ui.returnStatement("DatabaseServer: " + queryString);
             ResourceBundle resources;
             InputStream in = null;
             ResourceBundle newResources;
@@ -50,10 +52,16 @@ public class DatabaseServer {
         try {
             Connection con = DriverManager.getConnection(url, user, password);
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery(queryString);
-            ResultSetProcessing rsp = new ResultSetProcessing(rs, queryString, socket, ss);
-            //ResultSetProcessing rsp = new ResultSetProcessing(rs, queryString);
-
+            if (!queryString.startsWith("S")) {
+                stmt.execute(queryString);
+                ResultSetProcessing rsp = new ResultSetProcessing(null, queryString, socket, ss);
+            }
+            else {
+                System.out.println("SELECT MFER");
+                rs = stmt.executeQuery(queryString); 
+                ResultSetProcessing rsp = new ResultSetProcessing(rs, queryString, socket, ss);
+            }
+            
             stmt.close();
             con.close();
         } catch (Exception e) {

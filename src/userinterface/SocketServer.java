@@ -79,6 +79,7 @@ public class SocketServer extends ClientServer {
                 else
                     qc.changeQuery(str, socket, this);
                     writeToSocket( socket, "goodbye");
+
             }  while (!str.contains("goodbye"));
         } catch (IOException e) {
             e.printStackTrace();

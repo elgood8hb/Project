@@ -57,7 +57,6 @@ public class DatabaseServer {
                 ResultSetProcessing rsp = new ResultSetProcessing(null, queryString, socket, ss);
             }
             else {
-                System.out.println("SELECT MFER");
                 rs = stmt.executeQuery(queryString); 
                 ResultSetProcessing rsp = new ResultSetProcessing(rs, queryString, socket, ss);
             }
